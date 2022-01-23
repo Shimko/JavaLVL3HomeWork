@@ -11,13 +11,52 @@ package Generalizations;
 //        Не забываем про метод добавления фрукта в коробку.
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-      
+        swapVal();
+        try {
+            convertIntegerToList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Box<Apple> appleBox = new Box<>();
+        appleBox.addFruit(new Apple());
+        appleBox.addFruit(new Apple());
+        appleBox.getWeight();
+        System.out.println(appleBox.getWeight());
+
+
+        Box<Orange> orangeBox = new Box<>();
+        orangeBox.addFruit(new Orange());
+        orangeBox.addFruit( new Orange());
+
+        orangeBox.getWeight();
+        System.out.println(orangeBox.getWeight());
+        Box<Fruit> generalBox = new Box<>();
+        generalBox.sprinkleFruit(appleBox);
+
+
+
+    }
+    static void swapVal( ) {
+        Integer [] array = new Integer[] { 32, 56, 74};
+        int firstVal = array[2];
+        for (int i = 0; i < array.length ; i++) {
+            array[0] = array[1];
+            array[1] = firstVal;
+            System.out.println("Измененный массив: " + array[i]);
+        }
+    }
+    public static void convertIntegerToList() throws Exception {
+        Integer[] intArray = {100, 30, 15};
+        List<Integer> list = Task.convertToList(intArray);
+        System.out.println(list);
+        }
     }
 
 
 
-}
+

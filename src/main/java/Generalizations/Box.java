@@ -6,9 +6,11 @@ import java.util.ArrayList;
 public class Box <T extends Fruit> {
     private ArrayList<T> fruitBox;
 
-    public Box(ArrayList<T>fruitBox) {
-        this.fruitBox = fruitBox;
+    public Box() {
+        this.fruitBox = new ArrayList<>();
     }
+
+
 
     public void addFruit(T fruit){
         fruitBox.add(fruit);
@@ -18,10 +20,12 @@ public class Box <T extends Fruit> {
         float weight = 0.0f;
         for (T e: fruitBox){
             weight += e.getWeight();
+
         }return weight;
+
     }
 
-    public void sprinkleFruit(Box<T> generalBox){
+    public void sprinkleFruit(Box<Fruit> generalBox){
         generalBox.fruitBox.addAll(fruitBox);
         fruitBox.clear();
     }

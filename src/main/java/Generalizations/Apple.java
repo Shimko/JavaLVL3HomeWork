@@ -4,9 +4,9 @@ public class Apple extends Fruit{
 
     private float weight;
 
-    public Apple(float weight) {
-        super(weight);
-        this.weight = 1.0f;
+    public Apple() {
+        super(1.0f);
+
     }
 
     public double getWeight() {
