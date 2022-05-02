@@ -1,36 +1,47 @@
 package Generalizations;
 
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class Box <T extends Fruit> {
-    private ArrayList<T> fruitBox;
 
-    public Box() {
-        this.fruitBox = new ArrayList<>();
+    private  ArrayList<T> fruits;
+
+    public Box(){
+        fruits = new ArrayList<>();
     }
 
+    public ArrayList<T> getFruits(){
+        return fruits;
+    }
 
-
-    public void addFruit(T fruit){
-        fruitBox.add(fruit);
+    public void addInBox(T fruit){
+        fruits.add(fruit);
     }
 
     public float getWeight(){
-        float weight = 0.0f;
-        for (T e: fruitBox){
-            weight += e.getWeight();
+        float sumWeight = 0.0f;
 
-        }return weight;
-
+        for (T fruit: fruits){
+            sumWeight += fruit.getWeight();
+        }
+        return sumWeight;
     }
 
-    public void sprinkleFruit(Box<Fruit> generalBox){
-        generalBox.fruitBox.addAll(fruitBox);
-        fruitBox.clear();
+    public void addFruits(ArrayList<T> fruit){
+        this.fruits.addAll(fruit);
     }
-    public boolean compare(Box<T> o ){
-        return Math.abs(this.getWeight() - o.getWeight()) < 0.001;
+
+    public void  moveAllToAnotherBox(Box<T> box){
+        box.addFruits(getFruits());
+        fruits.clear();
+    }
+
+    public boolean compare(Box<?> box){
+        return Math.abs(this.getWeight() - box.getWeight()) < 0.001;
     }
 
 }
